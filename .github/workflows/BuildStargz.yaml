@@ -24,4 +24,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
+          platform: linux/arm64
           tags: ghcr.io/marcusahlfors/node-estargz:latest
+          outputs: compression=estargz,force-compression=true
+          #type=oci,dest=image.tar,compression=estargz,force-compression=true -t ghcr.io/marcusahlfors/node-estargz:latest .
+          #outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
