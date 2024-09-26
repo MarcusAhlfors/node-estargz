@@ -46,7 +46,7 @@ jobs:
 
       #- name: Optimize Docker image with Stargz
       #  run: |
-      #    IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/myapp:latest
+      #    IMAGE_NAME=ghcr.io/marcusahlfors/node-estargz:latest
       #    ctr-remote image optimize --oci --entrypoint='[ "/bin/sh" ]' $IMAGE_NAME ${IMAGE_NAME}-stargz
 
       - name: Log in to GHCR
@@ -54,5 +54,5 @@ jobs:
 
       - name: Push Stargz Optimized Image to GHCR
         run: |
-          docker tag ${IMAGE_NAME}-stargz ghcr.io/${{ github.repository_owner }}/myapp:stargz-latest
-          docker push ghcr.io/${{ github.repository_owner }}/myapp:stargz-latest
+          docker tag ghcr.io/marcusahlfors/node-estargz:latest-stargz ghcr.io/marcusahlfors/node-estargz:stargz-latest
+          docker push ghcr.io/marcusahlfors/node-estargz:stargz-latest
