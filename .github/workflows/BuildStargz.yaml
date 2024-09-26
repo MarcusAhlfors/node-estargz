@@ -30,12 +30,12 @@ jobs:
       #- name: Build Docker image
       #  id: docker_build
       #  run: |
-      #    DOCKER_BUILDKIT=1 docker build --progress=plain -t ghcr.io/MarcusAhlfors/node-estargz:latest .
+      #    DOCKER_BUILDKIT=1 docker build --progress=plain -t ghcr.io/marcusahlfors/node-estargz:latest .
 
       - name: Build Arm Docker image
         id: docker_build
         run: |
-          docker buildx build --platform linux/arm64 --output=type=oci,dest=image.tar -t ghcr.io/MarcusAhlfors/node-estargz:latest .
+          docker buildx build --platform linux/arm64 --output=type=oci,dest=image.tar -t ghcr.io/marcusahlfors/node-estargz:latest .
 
       - name: Install ctr-remote (Stargz optimizer)
         run: |
