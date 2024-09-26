@@ -37,17 +37,17 @@ jobs:
         run: |
           docker buildx build --platform linux/arm64 --output=type=oci,dest=image.tar -t ghcr.io/marcusahlfors/node-estargz:latest -o type=registry,oci-mediatypes=true,compression=estargz,force-compression=true 
 
-      - name: Install ctr-remote (Stargz optimizer)
-        run: |
-          sudo apt-get update && sudo apt-get install -y make git
-          git clone https://github.com/containerd/stargz-snapshotter.git
-          cd stargz-snapshotter
-          make install
+      #- name: Install ctr-remote (Stargz optimizer)
+      #  run: |
+      #    sudo apt-get update && sudo apt-get install -y make git
+      #    git clone https://github.com/containerd/stargz-snapshotter.git
+      #    cd stargz-snapshotter
+      #    make install
 
-      - name: Optimize Docker image with Stargz
-        run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/myapp:latest
-          ctr-remote image optimize --oci --entrypoint='[ "/bin/sh" ]' $IMAGE_NAME ${IMAGE_NAME}-stargz
+      #- name: Optimize Docker image with Stargz
+      #  run: |
+      #    IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/myapp:latest
+      #    ctr-remote image optimize --oci --entrypoint='[ "/bin/sh" ]' $IMAGE_NAME ${IMAGE_NAME}-stargz
 
       - name: Log in to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
