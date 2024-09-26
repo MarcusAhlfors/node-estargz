@@ -54,5 +54,5 @@ jobs:
 
       - name: Push Stargz Optimized Image to GHCR
         run: |
-          docker tag ghcr.io/marcusahlfors/node-estargz:latest-stargz ghcr.io/marcusahlfors/node-estargz:stargz-latest
+          docker tag ghcr.io/marcusahlfors/node-estargz:latest ghcr.io/marcusahlfors/node-estargz:stargz-latest
           docker push ghcr.io/marcusahlfors/node-estargz:stargz-latest
