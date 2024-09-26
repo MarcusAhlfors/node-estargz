@@ -35,7 +35,7 @@ jobs:
       - name: Build Arm Docker image
         id: docker_build
         run: |
-          docker buildx build --platform linux/arm64 --output=type=oci,dest=image.tar -t ghcr.io/marcusahlfors/node-estargz:latest -o type=registry,oci-mediatypes=true,compression=estargz,force-compression=true 
+          docker buildx build --platform linux/arm64 --output=type=oci,dest=image.tar,compression=estargz,force-compression=true -t ghcr.io/marcusahlfors/node-estargz:latest
 
       #- name: Install ctr-remote (Stargz optimizer)
       #  run: |
