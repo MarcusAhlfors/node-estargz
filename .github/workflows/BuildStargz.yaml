@@ -26,6 +26,6 @@ jobs:
           push: true
           platforms: linux/arm64
           tags: ghcr.io/marcusahlfors/node-estargz:estargz
-          outputs: type=oci,compression=estargz,force-compression=true,oci-mediatypes=true
+          outputs: type=oci,compression=estargzxxxx,force-compression=true,oci-mediatypes=true
           #type=oci,dest=image.tar,compression=estargz,force-compression=true -t ghcr.io/marcusahlfors/node-estargz:latest .
           #outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
